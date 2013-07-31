@@ -1,0 +1,13 @@
+vrrp_sync_group <%= @name -%> {
+<% @instances.each do |instance| -%>
+  <%= instance %>
+<% end -%>
+<% if @notify_master -%>
+
+  notify_master "<%= @notify_master -%>"
+<% end -%>
+<% if @notify_backup -%>
+
+  notify_backup "<%= @notify_backup -%>"
+<% end -%>
+}
